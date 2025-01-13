@@ -4,7 +4,7 @@ function Balance({ balance })  {
 
   return (
     <div>
-      <h2>Balance: ${balance}</h2>
+      <h2>Balance: {balance}€</h2>
     </div>
   );
 }

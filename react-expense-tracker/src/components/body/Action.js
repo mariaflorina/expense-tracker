@@ -33,8 +33,8 @@ const Action = ({ onAddIncome, onDeductExpense }) => {
           value={amount}
           onChange={handleInputChange} 
         />
-        <button className="income" onClick={handleAddIncome}>+ Income</button>
-        <button className="expense" onClick={handleDeductExpense}>- Expense</button>
+        <button className="income" onClick={handleAddIncome}>Add Income</button>
+        <button className="expense" onClick={handleDeductExpense}>Deduct Expense</button>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ const TransactionHistory = ({ transactions, onDeleteTransaction }) => {
       <ul>
         {filteredTransactions.map((transaction, index) => (
           <li key={index}>
-            {transaction.type}: ${transaction.amount}
+            {transaction.type}: {transaction.amount}€
             <button className="delete" onClick={() => onDeleteTransaction(index)}>Delete</button>
           </li>
         ))}
