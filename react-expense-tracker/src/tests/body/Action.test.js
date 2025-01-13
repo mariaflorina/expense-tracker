@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Action from '../components/body/Action';
+import Action from '../../components/body/Action';
 
 describe('Action Component', () => {
   test('renders input and buttons', () => {
