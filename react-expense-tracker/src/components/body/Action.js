@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Action = ({ onAddIncome, onDeductExpense }) => {
   const [amount, setAmount] = useState('');
@@ -38,6 +39,10 @@ const Action = ({ onAddIncome, onDeductExpense }) => {
       </div>
     </div>
   );
+};
+Action.propTypes = {
+  onAddIncome: PropTypes.func.isRequired,
+  onDeductExpense: PropTypes.func.isRequired,
 };
 
 export default Action;

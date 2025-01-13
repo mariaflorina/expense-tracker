@@ -3,6 +3,7 @@ body {
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .App {
@@ -10,8 +11,20 @@ body {
   padding: 20px;
 }
 
+h1 {
+  background: linear-gradient(90deg, #42a5f5, #66bb6a);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  margin: -20px -20px 20px -20px;
+}
+
 h2, h3 {
   color: #333;
+  margin-bottom: 20px;
 }
 
 input[type="number"] {

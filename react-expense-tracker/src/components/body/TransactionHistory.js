@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const TransactionHistory = ({ transactions, onDeleteTransaction }) => {
   const [filter, setFilter] = useState('All');
@@ -15,8 +16,8 @@ const TransactionHistory = ({ transactions, onDeleteTransaction }) => {
     <div>
       <h2>Transactions History</h2>
       <div>
-        <label>Filter by type: </label>
-        <select value={filter} onChange={handleFilterChange}>
+        <label htmlFor="filter">Filter by type: </label>
+        <select id="filter" value={filter} onChange={handleFilterChange}>
           <option value="All">All</option>
           <option value="Income">Income</option>
           <option value="Expense">Expense</option>
@@ -32,6 +33,16 @@ const TransactionHistory = ({ transactions, onDeleteTransaction }) => {
       </ul>
     </div>
   );
+};
+
+TransactionHistory.propTypes = {
+  transactions: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.number.isRequired
+    })
+  ).isRequired,
+  onDeleteTransaction: PropTypes.func.isRequired
 };
 
 export default TransactionHistory;
