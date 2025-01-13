@@ -1,20 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Action from './body/Action';
 import Balance from './body/Balance';
 import TransactionHistory from './body/TransactionHistory';
 
 const Body = () => {
-  const [balance, setBalance] = useState(0);
-  const [transactions, setTransactions] = useState([]);
+  const [balance, setBalance] = useState(() => {
+    return JSON.parse(localStorage.getItem('balance')) || 0;
+  });
+  const [transactions, setTransactions] = useState(() => {
+    return JSON.parse(localStorage.getItem('transactions')) || [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('balance', JSON.stringify(balance));
+  }, [balance]);
+
+  useEffect(() => {
+    localStorage.setItem('transactions', JSON.stringify(transactions));
+  }, [transactions]);
 
   const handleAddIncome = (amount) => {
+    const newTransactions = [...transactions, { type: 'Income', amount }];
+    setTransactions(newTransactions);
     setBalance(balance + amount);
-    setTransactions([...transactions, { type: 'Income', amount }]);
   };
 
   const handleDeductExpense = (amount) => {
+    const newTransactions = [...transactions, { type: 'Expense', amount }];
+    setTransactions(newTransactions);
     setBalance(balance - amount);
-    setTransactions([...transactions, { type: 'Expense', amount }]);
   };
 
   const handleDeleteTransaction = (index) => {
@@ -30,8 +44,8 @@ const Body = () => {
 
   return (
     <div>
-      <Action onAddIncome={handleAddIncome} onDeductExpense={handleDeductExpense} />
       <Balance balance={balance} />
+      <Action onAddIncome={handleAddIncome} onDeductExpense={handleDeductExpense} />
       <TransactionHistory transactions={transactions} onDeleteTransaction={handleDeleteTransaction} />
     </div>
   );
