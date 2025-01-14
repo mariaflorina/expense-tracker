@@ -47,3 +47,9 @@ No additional configuration is required. The application uses local storage to p
 - View Balance: The current balance is displayed at the top of the application.
 - View Transaction History: The transaction history is displayed below the balance. Use the filter dropdown to filter transactions by type.
 - Delete Transactions: Click the "Delete" button next to a transaction to remove it from the history.
+
+## Running Tests
+To run the tests, use the following command:
+```sh
+npm test
+```
